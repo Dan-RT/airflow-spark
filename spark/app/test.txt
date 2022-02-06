@@ -1,0 +1,1 @@
+f"Accuracy: {accuracy}Accuracy: 0.6400191487386919
