@@ -77,8 +77,12 @@ def castColumnsToDouble(df, columnsToCast):
     #
     castedColumns = []
     for col in columnsToCast:
-        df = df.withColumn(col + "_double", df[col].cast("double"))
-        castedColumns.append(col + "_double")
+        try:
+            df = df.withColumn(col + "_double", df[col].cast("double"))
+            castedColumns.append(col + "_double")
+        except Exception as e:
+            print(f"ERROR: {col} could not be casted to double.")
+            print(e)
 
     return df, castedColumns
 
